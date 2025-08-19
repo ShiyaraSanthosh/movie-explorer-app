@@ -1,22 +1,21 @@
-import { Button } from "@/components/ui/button"
-import { Routes, Route } from "react-router-dom";
-import SignIn from "./auth/forms/SignIn";
-import SignUp from "./auth/forms/SignUp";
-import AuthLayout from "./auth/AuthLayout";
+
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import SignIn from "./auth/SignIn";
+import SignUp from "./auth/SignUp";
+
 
 function App() {
   return (
     <main className="flex h-screen">
       <Routes>
-        {/* public routes */}
-        <Route element={<AuthLayout />}>
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-        </Route>
+        <Route path="/" element={<Navigate to="/signin"  />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/home" element={<HomePage />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
     </main>
   )
 }
