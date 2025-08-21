@@ -6,17 +6,21 @@ import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
 
 
+
 function App() {
   return (
-    <main className="flex h-screen">
-      <Routes>
-        <Route path="/" element={<Navigate to="/signin"  />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/home" element={<HomePage />} />
+    <>
+      <main className="flex h-screen">
+        <Routes>
+          <Route path="/" element={<Navigate to="/signin"  />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
-    </main>
+      </main>
+   
+    </>
   )
 }
 

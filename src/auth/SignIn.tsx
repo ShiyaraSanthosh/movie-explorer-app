@@ -31,7 +31,7 @@ export default function SignIn() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 bg-white rounded-lg shadow-md p-6 h-[350px] ml-[30%] mt-[9%] w-[300px]">
         <h2 className="text-2xl font-bold text-center">Sign In</h2>
 
         <FormField
