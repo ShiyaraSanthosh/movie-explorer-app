@@ -17,6 +17,7 @@ const MovieDetailPage = () => {
 
     const [displayMovie, setDisplayMovie] = useState<Movie | null>(null);
      useEffect(() =>{
+        if (!id) return; // ✅ prevent undefined
         const fetchingMovie = async () =>{
             const data = await displayMovies(id);
             console.log("display fetched in Card:", data);
