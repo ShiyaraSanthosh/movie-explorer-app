@@ -1,7 +1,21 @@
+import { getMovie } from '@/api';
 import Card from '@/components/card';
+import { useEffect, useState } from 'react';
 
 
 const HomePage = () => {
+  const [moviesList, setMovieList] = useState([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const data = await getMovie();
+      console.log("Movies fetched in Card:", data);
+      setMovieList(data);
+    };
+
+    fetchMovies();
+  }, []);
+
     return (
                <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
       {/* Navbar */}
@@ -20,7 +34,7 @@ const HomePage = () => {
           />
         </div>
       </nav>
-      <Card />
+      <Card movies= {moviesList}/>
     </div>
      
     );

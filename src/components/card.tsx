@@ -1,5 +1,3 @@
-import { getMovie } from "@/api";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 interface Movie {
@@ -8,26 +6,16 @@ interface Movie {
   title: string;
   overview: string;
   vote_average: number;
+  movies: Movie[];
 }
 
-const Card = () => {
-  const [moviesList, setMovieList] = useState([]);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const data = await getMovie();
-      console.log("Movies fetched in Card:", data);
-      setMovieList(data);
-    };
-
-    fetchMovies();
-  }, []);
-
+const Card = ({movies}: Movie) => {
+  
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
       <div className="p-4 space-y-2 rounded-lg shadow-sm dark:bg-black ">
         <ul className="grid grid-cols-4 gap-4 ml-10">
-          {moviesList.map((movie: Movie) => (
+          {movies.map((movie: Movie) => (
             <Link to={`/movie/${movie.id}`} key={movie.id} >
             <li key={movie.id} className="mb-6"> 
               <img
