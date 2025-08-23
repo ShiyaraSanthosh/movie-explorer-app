@@ -6,10 +6,11 @@ interface Movie {
   title: string;
   overview: string;
   vote_average: number;
-  movies: Movie[];
 }
-
-const Card = ({movies}: Movie) => {
+interface CardProps {
+  movies: Movie[];   // 👈 we expect movies from parent
+}
+const Card = ({movies}: CardProps) => {
   
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
