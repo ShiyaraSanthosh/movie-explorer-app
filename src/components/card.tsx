@@ -1,8 +1,14 @@
 import { getMovie } from "@/api";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-const poster_path = "/x6xiixuQ3FpbEgiu8cr1444H0g7.jpg";
+interface Movie {
+  id: string;
+  poster_path: string;
+  title: string;
+  overview: string;
+  vote_average: number;
+}
 
 const Card = () => {
   const [moviesList, setMovieList] = useState([]);
@@ -18,21 +24,20 @@ const Card = () => {
   }, []);
 
   return (
-    <div className="bg-white shadow-md w-60 rounded-lg shadow-sm dark:bg-black mt-[8%] ml-[5%]">
-      <div className="p-4 space-y-2 rounded-lg shadow-sm dark:bg-black">
-        <ul className="grid grid-cols-3 gap-6">
-          {moviesList.map((movie) => (
-            <li key={movie.id} className="mb-6">
+    <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
+      <div className="p-4 space-y-2 rounded-lg shadow-sm dark:bg-black ">
+        <ul className="grid grid-cols-4 gap-4 ml-10">
+          {moviesList.map((movie: Movie) => (
+            <Link to={`/movie/${movie.id}`} key={movie.id} >
+            <li key={movie.id} className="mb-6"> 
               <img
-                src={`${BASE_IMAGE_URL}${movie.poster_path}`} 
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                 alt={movie.title}
-                className="w-60 h-80 rounded-lg shadow-md "
+                className="w-60 h-80 rounded-lg shadow-md bg-white shadow-md w-60 rounded-lg shadow-sm dark:bg-black mt-13 ml-[5%]"
               />
-              <h3 className="text-lg font-bold text-gray-800">{movie.title}</h3>
-              <p className="text-yellow-600 font-semibold">⭐ {movie.vote_average}</p>
-              <h3 className="text-lg font-bold text-gray-800">Overview</h3>
-              <p className="text-sm text-gray-600 line-clamp-3">{movie.overview}</p>
+              <h3 className="ml-3 mt-3 text-lg font-bold text-gray-800">{movie.title}</h3>
             </li>
+            </Link>
           ))}
         </ul>
       </div>

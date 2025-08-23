@@ -3,7 +3,7 @@ import React from 'react';
 
 const HomePage = () => {
     return (
-               <div className="h-full w-full bg-gradient-to-r from-yellow-400 to-orange-500">
+               <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
       {/* Navbar */}
       <nav className="flex justify-between items-center px-[10%] py-4 bg-black bg-opacity-20 shadow-md">
         <div className="flex space-x-6 font-semibold text-white text-lg">
