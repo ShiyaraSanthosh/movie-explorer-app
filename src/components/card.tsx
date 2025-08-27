@@ -13,9 +13,12 @@ interface CardProps {
 const Card = ({movies}: CardProps) => {
   
   return (
+    
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
+      <h1 className="text-[30px] font-bold text-gray-800 mt-4 ml-15 ">Trending movies</h1>
       <div className="p-4 space-y-2 rounded-lg shadow-sm dark:bg-black ">
         <ul className="grid grid-cols-4 gap-4 ml-10">
+          
           {movies.map((movie: Movie) => (
             <Link to={`/movie/${movie.id}`} key={movie.id} >
             <li key={movie.id} className="mb-6"> 
