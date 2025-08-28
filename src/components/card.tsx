@@ -8,14 +8,14 @@ interface Movie {
   vote_average: number;
 }
 interface CardProps {
-  movies: Movie[];   // 👈 we expect movies from parent
+  movies: Movie[];  
 }
 const Card = ({movies}: CardProps) => {
   
   return (
     
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
-      <h1 className="text-[30px] font-bold text-gray-800 mt-4 ml-15 ">Trending movies</h1>
+      
       <div className="p-4 space-y-2 rounded-lg shadow-sm dark:bg-black ">
         <ul className="grid grid-cols-4 gap-4 ml-10">
           

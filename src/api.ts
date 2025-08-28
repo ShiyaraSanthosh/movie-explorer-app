@@ -9,10 +9,10 @@ export const getMovie = async (searchQuery?: string, category: string = "discove
     let url;
 
     if (searchQuery && searchQuery.trim() !== "") {
-      // 🔍 Search
+     
       url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(searchQuery)}&language=en-US`;
     } else {
-      // 🎬 Category
+      
       switch (category) {
         case "popular":
           url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US`;
