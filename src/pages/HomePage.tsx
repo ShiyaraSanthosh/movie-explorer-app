@@ -1,6 +1,7 @@
 import { getMovie } from '@/api';
 import Card from '@/components/card';
 import { useEffect, useState } from 'react';
+import TrendingList from './TrendingList';
 
 const HomePage = () => {
   const [moviesList, setMovieList] = useState([]);
@@ -26,7 +27,8 @@ const HomePage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-orange-500">
+    <div className='bg-gray-200 w-full h-full'>
+    <div >
       {/* Navbar */}
       <nav className="flex justify-between items-center px-[10%] py-4 bg-black bg-opacity-20 shadow-md">
         <div className="flex space-x-6 font-semibold text-white text-lg">
@@ -45,7 +47,11 @@ const HomePage = () => {
           />
         </div>
       </nav>
+       <div className="mt-10">
+        <TrendingList />
+      </div>
       <Card movies={moviesList} />
+    </div>
     </div>
   );
 };

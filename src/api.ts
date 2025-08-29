@@ -47,4 +47,38 @@ export const displayMovies = async (id: string) =>{
     }
 }
 
+export const getTrending = async (mediaType: string, timeWindow: string) => {
+  try {
+    const response =  await axios.get(`${BASE_URL}/trending/${mediaType}/${timeWindow}?api_key=${API_KEY}`);
+    return response.data.results;
+  } catch (error) {
+    console.log("Error fetching trending data:", error);
+    return [];
+    
+  }
+}
 
+export const getMovieCredits = async (movieId: string) => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+    );
+    return res.data; // has { cast, crew }
+  } catch (error) {
+    console.error("Error fetching credits:", error);
+    return { cast: [], crew: [] };
+  }
+};
+
+
+export const getTvCredits = async (tvId: string) => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/tv/${tvId}/credits?api_key=${API_KEY}&language=en-US`
+    );
+    return res.data; // has { cast, crew }
+  } catch (error) {
+    console.error("Error fetching TV credits:", error);
+    return { cast: [], crew: [] };
+  }
+};
